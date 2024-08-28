@@ -2,6 +2,6 @@
 
 public interface IProcessQuery
 {
-    T ProcessQuery<T>(IQuery<T> query);
-    Task<T> ProcessQueryAsync<T>(IQuery<T> query, CancellationToken cancellationToken);
+    TResult ProcessQuery<TResult>(IQuery<TResult> query);
+    Task<TResult> ProcessQueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken);
 }

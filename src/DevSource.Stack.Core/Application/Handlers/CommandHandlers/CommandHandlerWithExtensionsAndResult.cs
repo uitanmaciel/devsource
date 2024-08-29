@@ -11,9 +11,9 @@ namespace DevSource.Stack.Core.Application.Handlers.CommandHandlers;
 /// <typeparam name="TResult">The type result of command to handle.</typeparam>
 /// <typeparam name="TState">The type of state associated with the handler. Must implement the <see cref="IState"/> interface.</typeparam>
 /// <typeparam name="TExtension">The type of extension associated with the handler. Must implement the <see cref="IState"/> interface.</typeparam>
-public abstract class CommandHandlerWithExtensions<TCommand, TState, TExtension> :
+public abstract class CommandHandlerWithExtensions<TCommand, TResult, TState, TExtension> :
     BaseCommandHandler,
-    ICommandHandler<TCommand>,
+    ICommandHandler<TCommand, TResult>,
     IProcessEvent
     where TCommand : ICommand
     where TState : IState
@@ -46,7 +46,7 @@ public abstract class CommandHandlerWithExtensions<TCommand, TState, TExtension>
     /// the logic for processing the given command.
     /// </summary>
     /// <param name="command">The command to be handled.</param>
-    public abstract void Handle(TCommand command);
+    public abstract TResult Handle(TCommand command);
     
     /// <summary>
     /// Processes a event by dispatching it through the mediator.

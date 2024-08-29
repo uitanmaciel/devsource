@@ -7,9 +7,7 @@ namespace DevSource.Stack.Core.Application;
 public abstract class ApplicationServices :
     Notifier,
     IProcessCommand,
-    IProcessQuery,
-    IProcessEvent,
-    IProcessEventAsync
+    IProcessQuery
 {
     private readonly IDevSourceProperties _service = null!;
     private readonly IMediator _mediator;
@@ -73,39 +71,4 @@ public abstract class ApplicationServices :
     /// <returns>The result of type <typeparamref name="TResult"/> obtained from processing the query.</returns>
     public async Task<TResult> ProcessQueryAsync<TResult>(IQuery<TResult> query, CancellationToken cancellationToken)
         => await _mediator.DispatcherAsync<TResult>(query);
-    
-    /// <summary>
-    /// Processes the given event by dispatching it through the mediator.
-    /// </summary>
-    /// <param name="event">The event to be processed. Can be of any type.</param>
-    public void ProcessEvent(object @event)
-        => _mediator.Dispatcher(@event);
-
-    /// <summary>
-    /// Processes the given event by dispatching it through the mediator and returns a result of type <typeparamref name="TResult"/>.
-    /// </summary>
-    /// <typeparam name="TResult">The type of result expected from processing the event.</typeparam>
-    /// <param name="event">The event to be processed. Can be of any type.</param>
-    /// <returns>The result of type <typeparamref name="TResult"/> obtained from processing the event.</returns>
-    public TResult ProcessEvent<TResult>(object @event)
-        => _mediator.Dispatcher<TResult>(@event);
-    
-    /// <summary>
-    /// Asynchronously processes the given event by dispatching it through the mediator.
-    /// </summary>
-    /// <param name="event">The event to be processed. Can be of any type.</param>
-    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-    /// <returns>A task that represents the asynchronous operation.</returns>
-    public async Task ProcessEventAsync(object @event, CancellationToken cancellationToken)
-        => await _mediator.DispatcherAsync(@event);
-    
-    /// <summary>
-    /// Asynchronously processes the given event by dispatching it through the mediator and returns a result of type <typeparamref name="TResult"/>.
-    /// </summary>
-    /// <typeparam name="TResult">The type of result expected from processing the event.</typeparam>
-    /// <param name="event">The event to be processed. Can be of any type.</param>
-    /// <param name="cancellationToken">A token to monitor for cancellation requests.</param>
-    /// <returns>A task that represents the asynchronous operation, containing the result of type <typeparamref name="TResult"/>.</returns>
-    public async Task<TResult> ProcessEventAsync<TResult>(object @event, CancellationToken cancellationToken)
-        => await _mediator.DispatcherAsync<TResult>(@event);
 }

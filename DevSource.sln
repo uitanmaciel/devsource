@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSource.Stack.Core", "src
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSource.Stack.State.EF", "src\DevSource.Stack.State.EF\DevSource.Stack.State.EF.csproj", "{42F73DE5-68F1-4192-B28A-195323A19CF7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DevSource.Stack.Web", "src\DevSource.Stack.Web\DevSource.Stack.Web.csproj", "{C0C7715A-E7DE-4583-8289-027F72E8E3D2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{42F73DE5-68F1-4192-B28A-195323A19CF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42F73DE5-68F1-4192-B28A-195323A19CF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{42F73DE5-68F1-4192-B28A-195323A19CF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0C7715A-E7DE-4583-8289-027F72E8E3D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0C7715A-E7DE-4583-8289-027F72E8E3D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0C7715A-E7DE-4583-8289-027F72E8E3D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0C7715A-E7DE-4583-8289-027F72E8E3D2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -34,5 +40,6 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{CF7A6E5A-A1DF-494B-9317-BB93BA21D9FC} = {A0A461D6-A6AF-4968-943D-E83E1C6106F6}
 		{42F73DE5-68F1-4192-B28A-195323A19CF7} = {A0A461D6-A6AF-4968-943D-E83E1C6106F6}
+		{C0C7715A-E7DE-4583-8289-027F72E8E3D2} = {A0A461D6-A6AF-4968-943D-E83E1C6106F6}
 	EndGlobalSection
 EndGlobal

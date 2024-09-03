@@ -20,18 +20,18 @@ public abstract class CommandHandlerAsync<TCommand, TResult, TState> :
     private readonly IDevSourceProperties _services = null!;
     private readonly IMediator _mediator;
     
-    protected TState State { get; }
+    protected TState WriteState { get; }
     
-    protected CommandHandlerAsync(TState state)
+    protected CommandHandlerAsync(TState writeState)
     {
-        State = state;
+        WriteState = writeState;
         var mediatorFactory = new MediatorFactory();
         _mediator = mediatorFactory.CreateMediator(_services.Services);
     }
 
-    protected CommandHandlerAsync(TState state, ITransactionFactory transactionFactory) : base(transactionFactory)
+    protected CommandHandlerAsync(TState writeState, ITransactionFactory transactionFactory) : base(transactionFactory)
     {
-        State = state;
+        WriteState = writeState;
         var mediatorFactory = new MediatorFactory();
         _mediator = mediatorFactory.CreateMediator(_services.Services);
     }
